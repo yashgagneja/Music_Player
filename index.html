@@ -3,11 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
 	<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+	<!-- <div class="x1"> -->
+	<label for="Speech Recognition">Speech Recognition</label>
+	<input type="text" name="" id="speechToText" placeholder="Speak Something" onclick=record()>
+
+	<!-- </div> -->
 	<div class="main_div">
 		<div class="music_container">
 			<h2 id="title">Lotus Lane</h2>
@@ -24,6 +30,15 @@
 		</div>
 	</div>
 	<script>
+		function record(){
+			var rr=new webkitSpeechRecognition();
+			rr.lang = "en-GB";
+			rr.onresult = function(event) {
+				console.log(event);
+				document.getElementById('speechToText').value= event.results[0][0].transcript;
+			} 
+			rr.start(); 
+		}
 		const music = document.querySelector("audio");
 		const img = document.querySelector("img");
 		const play = document.getElementById("play");
