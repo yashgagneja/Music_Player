@@ -16,7 +16,7 @@
 	<div class="x1">
 	<!-- <label for="Speech Recognition" id="x2">Speech Recognition</label> -->
 	<input type="text" name="" id="speechToText" placeholder="Speak Something" onclick=record()>
-
+          <button onclick=record2()>Search</button>
 	</div>
 	<div class="main_div">
 		<div class="music_container" id="rt">
@@ -50,6 +50,11 @@
 			// document.body.style.background = black;
 			// changeColor('yellow');
 			document.getElementById('rt').style.background = 'white';
+		}
+		function record2(){
+		//	document.getElementById("mybutton").onclick = function(){
+				location.href="https://www.youtube.com/results?search_query="+document.getElementById('speechToText').value;
+		//	}
 		}
 		function record(){
 			var rr=new webkitSpeechRecognition();
