@@ -52,6 +52,35 @@ img{
 	margin: 0 10px;
 	border-radius: 5px;
 }
+.abcd{
+	margin: 20px 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	height: 150px;
+	/* padding: 20px 0; */
+	background-color: tomato;
+	font-size: 4.5rem;
+	/* position: relative; */
+}
+.abcd h1{
+	margin: auto;
+	color: white;
+	/* position: absolute; */
+}
+.abcd img{
+	/* position: relative; */
+	width: 50%;
+	background-color: white;
+	/* background-repeat: repeat-x; */
+	/* height: fit-content; */
+	/* border-radius: 0; */
+	border-radius: 10%;
+   height: 150px;
+   padding: 0 0;
+   opacity: 1;
+}
 .xx{
 	display: flex;
 	justify-content: center;
