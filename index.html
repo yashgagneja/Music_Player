@@ -18,6 +18,9 @@
 	<input type="text" name="" id="speechToText" placeholder="Speak Something" onclick=record()>
           <button onclick=record2()>Search</button>
 	</div>
+	<div class="abcd">
+		<h1>Enjoying the Music</h1>
+	</div>
 	<div class="main_div">
 		<div class="music_container" id="rt">
 			<div class="xx">
@@ -40,7 +43,34 @@
 	
 	</div>
 	<script>
-		
+		const dropArea = document.querySelector(".abcd");
+		let file;
+		dropArea.addEventListener("dragover", (event)=>{
+			event.preventDefault();
+			dropArea.classList.add("active");
+            //console.log("File is here bro");
+		});
+		dropArea.addEventListener("drop",(event)=>{
+            event.preventDefault();
+			file = event.dataTransfer.files[0];
+			//console.log(file);
+			let fileType = file.type;
+			 
+			let validExtensions = ["image/jpeg", "image/jpg" ,"image/png"];
+			if(validExtensions.includes(fileType)){
+				let fileReader = new FileReader();
+				fileReader.onload = () =>{
+					let fileURL = fileReader.result;
+					let imgTag = `<div style="position:absolute border-radius:20%"><img src="${fileURL}" alt="" style="background-color:white"><h1 style="color:black">Enjoy More Now</h1></div>`;
+					dropArea.innerHTML = imgTag;
+					// dropArea.innerHTML = url(fileURL);
+				}
+				fileReader.readAsDataURL(file);
+			}else{
+				alert("This is not an image file");
+				dropArea.classList.remove("active");
+			}
+		});
 		function we1(){
 			// document.body.style.background = black;
 			// changeColor('yellow');
